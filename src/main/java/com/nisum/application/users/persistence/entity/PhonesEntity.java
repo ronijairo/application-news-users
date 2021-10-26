@@ -2,7 +2,7 @@ package com.nisum.application.users.persistence.entity;
 
 import java.io.Serializable;
 
-public class Phones implements Serializable {
+public class PhonesEntity implements Serializable {
 	
 
 

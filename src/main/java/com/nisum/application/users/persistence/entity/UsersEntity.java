@@ -5,24 +5,26 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Users implements Serializable {
+public class UsersEntity implements Serializable {
 
 	private static final long serialVersionUID = 7616485375821505100L;
-	private Long id;
+	
+	private String id;
 	private String name;
 	private String email;
 	private String password;
-	private List<Phones> phones;
+	private List<PhonesEntity> phones;
 	private Date created;
 	private Date modified;
 	private Date lastLogin;
 	private String token;
 	private boolean isactive;
 	
-	public Long getId() {
+
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -43,10 +45,10 @@ public class Users implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Phones> getPhones() {
+	public List<PhonesEntity> getPhones() {
 		return phones;
 	}
-	public void setPhones(List<Phones> phones) {
+	public void setPhones(List<PhonesEntity> phones) {
 		this.phones = phones;
 	}
 	public Date getCreated() {
