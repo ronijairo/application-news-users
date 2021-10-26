@@ -32,6 +32,7 @@ public class UsersEntity implements Serializable {
 	private Date created;
 	@Temporal(TemporalType.DATE)
 	private Date modified;
+	@Column(name = "last_login")
 	@Temporal(TemporalType.DATE)
 	private Date lastLogin;
 	private String token;
