@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.nisum.application.users'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '8'
 
 repositories {
 	mavenCentral()
@@ -14,9 +14,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
- 
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
