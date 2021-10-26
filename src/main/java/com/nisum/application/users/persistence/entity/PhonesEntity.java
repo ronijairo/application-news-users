@@ -2,23 +2,42 @@ package com.nisum.application.users.persistence.entity;
 
 import java.io.Serializable;
 
-public class PhonesEntity implements Serializable {
-	
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="phones")
+public class PhonesEntity implements Serializable {
 
 	private static final long serialVersionUID = 8336276381379130448L;
 	
-	private Long id;
+	@Id
+	@Column(name = "id", updatable = false, nullable = false)
+	private String id;
+	@Column(name = "users_id", updatable = false, nullable = false)
 	private Long users_id;
-	
 	private String number;
 	private Integer citycode;
 	private Integer contrycode;
 	
-	public Long getId() {
+	
+	public PhonesEntity() {}
+	
+	public PhonesEntity(String id, Long users_id, String number, Integer citycode, Integer contrycode) {
+		super();
+		this.id = id;
+		this.users_id = users_id;
+		this.number = number;
+		this.citycode = citycode;
+		this.contrycode = contrycode;
+	}
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Long getUsers_id() {
@@ -45,7 +64,4 @@ public class PhonesEntity implements Serializable {
 	public void setContrycode(Integer contrycode) {
 		this.contrycode = contrycode;
 	}
-	
-	
-
 }

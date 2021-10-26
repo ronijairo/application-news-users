@@ -4,23 +4,55 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+
+@Entity
+@Table(name = "users")
 public class UsersEntity implements Serializable {
 
 	private static final long serialVersionUID = 7616485375821505100L;
 	
+	@Id
+	@Column(name = "id", updatable = false, nullable = false)
 	private String id;
 	private String name;
 	private String email;
 	private String password;
+	@OneToMany(mappedBy="users_id",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<PhonesEntity> phones;
+	@Temporal(TemporalType.DATE)
 	private Date created;
+	@Temporal(TemporalType.DATE)
 	private Date modified;
+	@Temporal(TemporalType.DATE)
 	private Date lastLogin;
 	private String token;
 	private boolean isactive;
 	
-
+	public UsersEntity() {	}
+	
+	public UsersEntity(String id, String name, String email, String password, List<PhonesEntity> phones, Date created,
+			Date modified, Date lastLogin, String token, boolean isactive) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.phones = phones;
+		this.created = created;
+		this.modified = modified;
+		this.lastLogin = lastLogin;
+		this.token = token;
+		this.isactive = isactive;
+	}
 	public String getId() {
 		return id;
 	}
@@ -81,9 +113,4 @@ public class UsersEntity implements Serializable {
 	public void setIsactive(boolean isactive) {
 		this.isactive = isactive;
 	}
-	
-	
-	
-	
-
 }
