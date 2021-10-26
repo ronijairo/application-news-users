@@ -18,7 +18,7 @@ public class PhonesEntity implements Serializable {
 	@Column(name = "id", updatable = false, nullable = false)
 	private String id;
 	@Column(name = "users_id", updatable = false, nullable = false)
-	private Long users_id;
+	private String users_id;
 	private String number;
 	private Integer citycode;
 	private Integer contrycode;
@@ -26,7 +26,7 @@ public class PhonesEntity implements Serializable {
 	
 	public PhonesEntity() {}
 	
-	public PhonesEntity(String id, Long users_id, String number, Integer citycode, Integer contrycode) {
+	public PhonesEntity(String id, String users_id, String number, Integer citycode, Integer contrycode) {
 		super();
 		this.id = id;
 		this.users_id = users_id;
@@ -40,12 +40,15 @@ public class PhonesEntity implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Long getUsers_id() {
+
+	public String getUsers_id() {
 		return users_id;
 	}
-	public void setUsers_id(Long users_id) {
+
+	public void setUsers_id(String users_id) {
 		this.users_id = users_id;
 	}
+
 	public String getNumber() {
 		return number;
 	}
