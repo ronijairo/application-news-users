@@ -7,6 +7,6 @@ import com.nisum.application.users.domian.User;
 public interface UsersRepository {
 	
 	List<User> getAll();
-	User save();
+	User save(User userEntity);
 	
 }

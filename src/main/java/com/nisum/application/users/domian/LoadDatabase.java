@@ -10,7 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.nisum.application.users.persistence.crud.UserRepository;
+import com.nisum.application.users.persistence.crud.UserJpaRepository;
 import com.nisum.application.users.persistence.entity.PhonesEntity;
 import com.nisum.application.users.persistence.entity.UsersEntity;
 
@@ -20,7 +20,7 @@ import com.nisum.application.users.persistence.entity.UsersEntity;
 public class LoadDatabase {
 	private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 	  @Bean
-	  CommandLineRunner initDatabase(UserRepository repository) {
+	  CommandLineRunner initDatabase(UserJpaRepository repository) {
 
 	    return args -> {
 	    	String id = java.util.UUID.randomUUID().toString();

@@ -14,11 +14,12 @@ public class UsersService implements UsersRepository{
 	}
 
 	@Override
-	public User save() {
+	public User save(User userEntity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+
 	
 
 }

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.nisum.application.users.persistence.entity.UsersEntity;
 
-public interface UserRepository extends JpaRepository<UsersEntity, String> {
+public interface UserJpaRepository extends JpaRepository<UsersEntity, String> {
 
 }
