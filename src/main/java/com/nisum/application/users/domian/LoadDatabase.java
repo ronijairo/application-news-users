@@ -31,7 +31,7 @@ public class LoadDatabase {
 	    	List<PhonesEntity> phones = new ArrayList<PhonesEntity>();
 	    	 phones.add(new PhonesEntity(uuidPhone, id,"6674859320",3,2)); 
 	 
-	      log.info("Preloading " + repository.save(new UsersEntity(id, "Roni Jairo Canche","roni@mail.com","pwd",phones,date,date,date,uuidPhone,true)));
+	      log.info("Preloading " + repository.save(new UsersEntity(id, "Roni Canche","roni@gmail.com","pwd",phones,date,date,date,uuidPhone,true)));
 	    };
 	  }
 
