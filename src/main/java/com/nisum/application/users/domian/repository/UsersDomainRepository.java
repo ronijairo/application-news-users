@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.nisum.application.users.domian.User;
 
-public interface UsersRepository {
+public interface UsersDomainRepository {
 	
 	List<User> getAll();
-	User save(User userEntity);
+	User save(User user);
 	
 }

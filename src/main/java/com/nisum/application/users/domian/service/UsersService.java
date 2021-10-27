@@ -2,21 +2,26 @@ package com.nisum.application.users.domian.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.nisum.application.users.domian.User;
-import com.nisum.application.users.domian.repository.UsersRepository;
+import com.nisum.application.users.domian.repository.UsersDomainRepository;
 
-public class UsersService implements UsersRepository{
+@Service
+public class UsersService  {
 
-	@Override
+	@Autowired
+	private UsersDomainRepository domianRepository;
+
+
 	public List<User> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return domianRepository.getAll();
 	}
 
-	@Override
-	public User save(User userEntity) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public User save(User user) {
+		return domianRepository.save(user);
 	}
 
 

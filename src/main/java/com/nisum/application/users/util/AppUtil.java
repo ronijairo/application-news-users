@@ -15,6 +15,10 @@ public class AppUtil {
 		Matcher matcher= pattern.matcher(email);
 		return matcher.find();
 	}
+
+	public static String generateId(){
+		return java.util.UUID.randomUUID().toString();
+	}
 	
 
 }
