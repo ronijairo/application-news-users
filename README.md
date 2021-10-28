@@ -1,5 +1,5 @@
 # REGISTRO-USER-NISUM
-    Applicación para registro de usuarios,
+    Applicación para registro de usuarios, buenas practicas -> orientado el dominio -> Manejo de seguridad
 
 
 ## Versiones
@@ -42,6 +42,8 @@ En los Resorces de la aplicación en contrara el scritp de base de datos y la co
 ## >/src/main/resources
 > `schema.sql`,
 > `NISUM-PRACTICE.postman_collection.json`
+> `diagramSolucion.png`
+> `relacionTablas.png`
 
 
 ```
