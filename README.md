@@ -19,7 +19,7 @@
 * Intellij IDEA `11.0.9.1+11b1145`
 
 #### Documentacion
-* **Para el desarrollo de la aplicaion obte por el patron de diseño `Orientado al Dominio` ``**
+* **Para el desarrollo de la aplicaion obte por el patron de diseño `Orientado al Dominio` **
 ```
 
 instrucciones de uso de la aplicaión
@@ -30,8 +30,12 @@ instrucciones de uso de la aplicaión
 * [consultar-todos-los-registros ](hhttp://localhost:8001/nisum-app/api/v1/users/getAll)
 
 ## Importante
-    para poder hacer uno de las consultas a expción de `obtener token` es necesario porder ingresar en los headers de las consultas el Key: `Authorization` y como valor el `Token obtenido del servicio obetener-token`
+    para poder hacer uso de las consultas REGISTRAR,CUNSULTAR  a expción de `obtener token`
+    es necesario porder ingresar los headers de las consultas 
+    el Key: `Authorization` y como valor el `Token obtenido del servicio obetener-token`
 
+    estos datos son necesarios en la herramienta post-man
+    Header(key: Authorization, value: 'Bearer eyJhbGciOiJIUzI1...')
 
 En los Resorces de la aplicación en contrara el scritp de base de datos y la coleccion de postman: 
 ## >/src/main/resources
@@ -48,11 +52,10 @@ En los Resorces de la aplicación en contrara el scritp de base de datos y la co
 * Contraseña **`admin`**
 
 ### Conexión a BD
-* **La conexión se realiza en automatico, de igual forma inicializa con un  primer registro ``**
+* **La conexión se realiza en automatico, de igual forma inicializa con un  primer registro``**
 ```sql
 
 DROP TABLE IF EXISTS users;
-
 
 CREATE TABLE IF NOT EXISTS users (
   id VARCHAR(255) PRIMARY KEY  NOT NULL,
@@ -80,7 +83,7 @@ CREATE TABLE IF NOT EXISTS phones (
     ON UPDATE NO ACTION);
 ```
 
-
+##Request Registra usuario
 ```Json Request Registrar
 {
 	"name": "Alex Rodriguez",
@@ -94,7 +97,7 @@ CREATE TABLE IF NOT EXISTS phones (
 	]
 }
 ```
-
+##Request token
 ```Json Request obtener Token
 {
 	"username":"admin",
