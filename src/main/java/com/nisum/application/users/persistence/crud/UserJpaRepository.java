@@ -1,9 +1,12 @@
 package com.nisum.application.users.persistence.crud;
 
+import com.nisum.application.users.domian.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.nisum.application.users.persistence.entity.UsersEntity;
 
-public interface UserJpaRepository extends JpaRepository<UsersEntity, String> {
+import java.util.Optional;
 
+public interface UserJpaRepository extends JpaRepository<UsersEntity, String> {
+    Optional<UsersEntity> findByEmail(String email);
 }

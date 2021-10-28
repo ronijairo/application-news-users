@@ -1,6 +1,7 @@
 package com.nisum.application.users.util;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -10,11 +11,13 @@ public class AppUtil {
 		String pattern = "(?=.*\\d{2,})(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}";
 		return password.matches(pattern);
 	}
-	
-	public static boolean validateEmail(String email) {
-		Pattern pattern = Pattern.compile("[A-Za-z]+@[a-z]+\\.([a-z])+");
-		Matcher matcher= pattern.matcher(email);
-		return matcher.find();
+
+
+	public static boolean isValidEmailId(String email) {
+		String emailPattern = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		Pattern p = Pattern.compile(emailPattern);
+		Matcher m = p.matcher(email);
+		return m.matches();
 	}
 
 	public static String generateId(){
@@ -24,6 +27,19 @@ public class AppUtil {
 	public static Date getDateSystem(){
 		return new Date();
 	}
+
+
+
+
+/*	public static void main(String[] args) {
+		if(validateEmail("roni@dominio.com") == true){
+			System.out.println("success email");
+		}else{
+			System.out.println("Error email");
+		}
+
+	}
+*/
 	
 
 }

@@ -28,7 +28,6 @@ public interface UserMapper {
 	List<User> toUsers(List<UsersEntity> usersEntitys);
 	
 	@InheritInverseConfiguration
-	@Mapping(target = "phones", ignore = true)
 	UsersEntity toUserEntity(User user);
 
 }

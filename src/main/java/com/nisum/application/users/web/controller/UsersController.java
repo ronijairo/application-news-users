@@ -25,16 +25,21 @@ public class UsersController {
 
 	@PostMapping("/save")
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
-
-		System.out.println("" +user.getName() + " " + user.getEmail());
-		System.out.println("" + user.getPhones().toString());
-
 		Map<String, Object> jsonResponse = new HashMap<>();
-		User userDatail= service.save(user);
 		DetailResponse<User> detail = new DetailResponse<>();
-		detail.setCode(HttpStatus.OK.value());
-		detail.setMessage("success");
-		detail.setData(userDatail);
+		User userDatail= new User();
+		String id = AppUtil.generateId();
+		try {
+			detail = service.save(user);
+			detail.setCode(HttpStatus.OK.value());
+			detail.getData().getPhones().get(0).setId(null);
+			detail.getData().getPhones().get(0).setUsers_id(null);
+			jsonResponse.put("result", detail);
+		}catch (Exception e){
+			detail.setCode(HttpStatus.OK.value());
+			detail.setMessage("Error insertar " + e.getStackTrace().toString());
+			detail.setData(userDatail);
+		}
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
 	}
 	
@@ -48,18 +53,5 @@ public class UsersController {
 		detail.setData(listOfuser);
 		jsonResponse.put("result", detail);
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
-	}
-
-
-	public User preRegister(User user){
-		String id = AppUtil.generateId();
-		user.setCreated(AppUtil.getDateSystem());
-		user.setModified(AppUtil.getDateSystem());
-		user.setLastLogin(AppUtil.getDateSystem());
-		user.setId(id);
-		user.setToken(id);
-		user.setIsactive(true);
-
-		return user;
 	}
 }

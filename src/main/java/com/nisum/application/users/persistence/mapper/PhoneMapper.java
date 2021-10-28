@@ -13,6 +13,8 @@ import com.nisum.application.users.persistence.entity.PhonesEntity;
 @Mapper(componentModel = "spring")
 public interface PhoneMapper {
 	@Mappings({
+		@Mapping(source = "id", target = "id"),
+		@Mapping(source = "users_id", target = "users_id"),
 		@Mapping(source = "number", target = "number"),
 		@Mapping(source = "citycode", target = "citycode"),
 		@Mapping(source = "contrycode", target = "contrycode")
@@ -21,10 +23,6 @@ public interface PhoneMapper {
 	List<Phone> toPhones(List<PhonesEntity> phonesEntitys);
 	
 	@InheritInverseConfiguration
-	@Mappings({
-		@Mapping(target = "id", ignore = true),
-		@Mapping(target = "users_id", ignore = true),
-	})
 	PhonesEntity toPhonesEntity(Phone phone);
 
 }

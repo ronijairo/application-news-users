@@ -1,6 +1,7 @@
 package com.nisum.application.users.persistence;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,6 +31,16 @@ public class UsersRepository implements UsersDomainRepository{
 	public User save(User user) {
 		UsersEntity entity = mapper.toUserEntity(user);
 		return mapper.toUser(userJpaRepository.save(entity));
+	}
+
+	@Override
+	public Optional<User> findByEmail(String email) {
+		return userJpaRepository.findByEmail(email).map(user -> mapper.toUser(user));
+	}
+
+	@Override
+	public Optional<User> getUser(String id) {
+		return userJpaRepository.findById(id).map(user -> mapper.toUser(user));
 	}
 
 
