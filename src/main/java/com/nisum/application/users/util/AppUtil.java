@@ -1,5 +1,6 @@
 package com.nisum.application.users.util;
 
+import java.util.Date;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -18,6 +19,10 @@ public class AppUtil {
 
 	public static String generateId(){
 		return java.util.UUID.randomUUID().toString();
+	}
+
+	public static Date getDateSystem(){
+		return new Date();
 	}
 	
 

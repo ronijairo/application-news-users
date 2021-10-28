@@ -1,11 +1,10 @@
 package com.nisum.application.users.persistence.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -13,9 +12,13 @@ import javax.persistence.Table;
 public class PhonesEntity implements Serializable {
 
 	private static final long serialVersionUID = 8336276381379130448L;
-	
+	/*
 	@Id
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(name = "id", updatable = false, nullable = false)*/
+	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
+	@Column(name = "id", unique = true, updatable = false, nullable = false)
 	private String id;
 	@Column(name = "users_id", updatable = false, nullable = false)
 	private String users_id;

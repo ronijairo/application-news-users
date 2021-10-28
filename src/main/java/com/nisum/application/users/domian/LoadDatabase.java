@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.nisum.application.users.util.AppUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -24,14 +25,14 @@ public class LoadDatabase {
 
 	    return args -> {
 	    	String id = java.util.UUID.randomUUID().toString();
-	    	String uuidPhone = java.util.UUID.randomUUID().toString();
-	    	
-	    	Date date = new Date();
+
+	    	Date date = AppUtil.getDateSystem();
 	    	log.info("uuid :" + id + " Date: "+ date); 
 	    	List<PhonesEntity> phones = new ArrayList<PhonesEntity>();
-	    	 phones.add(new PhonesEntity(uuidPhone, id,"6674859320",3,2)); 
-	 
-	      log.info("Preloading " + repository.save(new UsersEntity(id, "Roni Canche","roni@gmail.com","pwd",phones,date,date,date,uuidPhone,true)));
+	    	 phones.add(new PhonesEntity("", id,"5528764532",3,2));
+			phones.add(new PhonesEntity("", id,"8876549876",5,1));
+
+			log.info("Preloading " + repository.save(new UsersEntity(id, "Roni Canche","roni@gmail.com","pwd",phones,date,date,date,"Token: null",true)));
 	    };
 	  }
 

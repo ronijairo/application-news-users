@@ -25,15 +25,8 @@ public class UsersController {
 
 	@PostMapping("/save")
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
-		String id = AppUtil.generateId();
-		Date date=new Date();
-		user.setCreated(date);
-		user.setModified(date);
-		user.setLastLogin(date);
-		user.setId(id);
-		user.setToken(id);
-		user.setIsactive(true);
-		System.out.println("" +user.getName() + " " + user.getEmail()+ date);
+
+		System.out.println("" +user.getName() + " " + user.getEmail());
 		System.out.println("" + user.getPhones().toString());
 
 		Map<String, Object> jsonResponse = new HashMap<>();
@@ -55,5 +48,18 @@ public class UsersController {
 		detail.setData(listOfuser);
 		jsonResponse.put("result", detail);
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
+	}
+
+
+	public User preRegister(User user){
+		String id = AppUtil.generateId();
+		user.setCreated(AppUtil.getDateSystem());
+		user.setModified(AppUtil.getDateSystem());
+		user.setLastLogin(AppUtil.getDateSystem());
+		user.setId(id);
+		user.setToken(id);
+		user.setIsactive(true);
+
+		return user;
 	}
 }
