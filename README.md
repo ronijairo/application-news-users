@@ -24,7 +24,7 @@
 ## endponts para consumo de servicios 
 * [Registrar]  (http://localhost:8001/nisum-app/api/v1/users/save)
 * [obteneter-Token] (http://localhost:8001/nisum-app/api/v1/auth/authenticate)
-* [consultar-todos-los-registros ](hhttp://localhost:8001/nisum-app/api/v1/users/getAll)
+* [consultar-todos-los-registros] (http://localhost:8001/nisum-app/api/v1/users/getAll)
 
 ```
 
