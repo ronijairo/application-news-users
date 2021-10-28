@@ -20,14 +20,15 @@
 
 #### Documentacion
 * **Para el desarrollo de la aplicaion obte por el patron de diseño `Orientado al Dominio` **
-```
-
-instrucciones de uso de la aplicaión
 
 ## endponts para consumo de servicios 
-* [Registrar](http://localhost:8001/nisum-app/api/v1/users/save)
-* [obteneter-Token](http://localhost:8001/nisum-app/api/v1/auth/authenticate)
+* [Registrar]  (http://localhost:8001/nisum-app/api/v1/users/save)
+* [obteneter-Token] (http://localhost:8001/nisum-app/api/v1/auth/authenticate)
 * [consultar-todos-los-registros ](hhttp://localhost:8001/nisum-app/api/v1/users/getAll)
+
+```
+
+Instrucciones de uso de la aplicaión.
 
 ## Importante
     para poder hacer uso de las consultas REGISTRAR,CUNSULTAR  a expción de `obtener token`
