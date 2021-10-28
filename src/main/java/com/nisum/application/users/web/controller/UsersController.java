@@ -1,11 +1,12 @@
 package com.nisum.application.users.web.controller;
 
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.nisum.application.users.util.AppUtil;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,10 @@ public class UsersController {
 	@Autowired
 	private UsersService service;
 
+
 	@PostMapping("/save")
+	@ApiOperation(value="Save user",
+			authorizations = {@Authorization(value="JWT")})
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
 		Map<String, Object> jsonResponse = new HashMap<>();
 		DetailResponse<User> detail = new DetailResponse<>();
@@ -39,6 +43,8 @@ public class UsersController {
 	}
 	
 	@GetMapping("/getAll")
+	@ApiOperation(value="Get all users",
+			authorizations = {@Authorization(value="JWT")})
 	public ResponseEntity<Map<String, Object>> getAll() {
 		Map<String, Object> jsonResponse = new HashMap<>();
 		List<User> listOfuser =  service.getAll();
@@ -49,4 +55,5 @@ public class UsersController {
 		jsonResponse.put("result", detail);
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
 	}
+
 }

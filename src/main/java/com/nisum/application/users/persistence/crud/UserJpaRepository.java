@@ -1,6 +1,5 @@
 package com.nisum.application.users.persistence.crud;
 
-import com.nisum.application.users.domian.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.nisum.application.users.persistence.entity.UsersEntity;

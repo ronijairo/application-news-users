@@ -1,7 +1,6 @@
 package com.nisum.application.users.util;
 
 import java.util.Date;
-import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -29,17 +28,13 @@ public class AppUtil {
 	}
 
 
+	public static String Token;
 
-
-/*	public static void main(String[] args) {
-		if(validateEmail("roni@dominio.com") == true){
-			System.out.println("success email");
-		}else{
-			System.out.println("Error email");
-		}
-
+	public static String getToken() {
+		return Token;
 	}
-*/
-	
 
+	public static void setToken(String token) {
+		Token = token;
+	}
 }
