@@ -27,18 +27,13 @@ public class UsersController {
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
 		Map<String, Object> jsonResponse = new HashMap<>();
 		DetailResponse<User> detail = new DetailResponse<>();
-		User userDatail= new User();
-		String id = AppUtil.generateId();
 		try {
 			detail = service.save(user);
 			detail.setCode(HttpStatus.OK.value());
-			detail.getData().getPhones().get(0).setId(null);
-			detail.getData().getPhones().get(0).setUsers_id(null);
 			jsonResponse.put("result", detail);
 		}catch (Exception e){
 			detail.setCode(HttpStatus.OK.value());
 			detail.setMessage("Error insertar " + e.getStackTrace().toString());
-			detail.setData(userDatail);
 		}
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
 	}
