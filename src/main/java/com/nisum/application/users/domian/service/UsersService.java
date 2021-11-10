@@ -24,7 +24,7 @@ public class UsersService  {
 	}
 
 	public DetailResponse<User> save(User user) {
-		String id = AppUtil.generateId();
+			String id = AppUtil.generateId();
 		DetailResponse<User> detail = new DetailResponse<>();
 		if(user.getName()!=null && user.getName()!=""
 				&& user.getEmail()!=null && user.getEmail()!=""
