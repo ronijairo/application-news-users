@@ -30,15 +30,7 @@ public class UsersController {
 			authorizations = {@Authorization(value="JWT")})
 	public ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
 		Map<String, Object> jsonResponse = new HashMap<>();
-		DetailResponse<User> detail = new DetailResponse<>();
-		try {
-			detail = service.save(user);
-			detail.setCode(HttpStatus.OK.value());
-			jsonResponse.put("result", detail);
-		}catch (Exception e){
-			detail.setCode(HttpStatus.OK.value());
-			detail.setMessage("Error insertar " + e.getStackTrace().toString());
-		}
+			jsonResponse.put("result", service.save(user));
 		return (new ResponseEntity<>(jsonResponse, new HttpHeaders(), HttpStatus.OK));
 	}
 	

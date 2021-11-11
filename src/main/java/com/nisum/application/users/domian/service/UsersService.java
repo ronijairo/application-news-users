@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.nisum.application.users.domian.DetailResponse;
 import com.nisum.application.users.util.AppUtil;
+import com.nisum.application.users.util.exception.IncompleteParametersException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class UsersService  {
 	}
 
 	public DetailResponse<User> save(User user) {
-		String id = AppUtil.generateId();
+			String id = AppUtil.generateId();
 		DetailResponse<User> detail = new DetailResponse<>();
 		if(user.getName()!=null && user.getName()!=""
 				&& user.getEmail()!=null && user.getEmail()!=""
@@ -50,16 +51,13 @@ public class UsersService  {
 					detail.setMessage("Correo ya registrado");
 				}
 			}else{
-				detail.setCode(201);
-				detail.setMessage("El password no es seguro,(Una mayúscula,letras minúsculas y dos numeros)");
+				throw new IncompleteParametersException("El password no es seguro,(Una mayúscula,letras minúsculas y dos numeros)");
 			}
 		}else{
-			detail.setCode(201);
-			detail.setMessage("El correo no cumple con el formato correcto favor de validar: Ejemplo (juan@rodriguez.org)");
+			throw new IncompleteParametersException("El correo no cumple con el formato correcto favor de validar: Ejemplo (juan@rodriguez.org)");
 		}
 		}else{
-			detail.setCode(201);
-			detail.setMessage("Validar que los campos (name, email, password, phones[]) nu sean nulos o bacios");
+			throw new IncompleteParametersException("Validar que los campos (name, email, password, phones[]) nu sean nulos o bacio");
 		}
 		return detail;
 	}
