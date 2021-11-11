@@ -8,18 +8,20 @@
 * spring framework `2.5.6`
 * spring-boot `2.5.6`
 * spring-JPA `2.5.6`
+* spring-Security `2.5.6`
 * swagger2  `2.9.2`
 * swagger-ui `2.9.2`
 * jsonwebtoken `0.9.1`
 * mapstruct `1.4.2.Final`
 * h2database `H2`
+* junit -test`5.3.1`
 
 ### Herramientas 
 * Postman ` 6.0.9 (6.0.9)`
 * Intellij IDEA `11.0.9.1+11b1145`
 
 #### Documentacion
-* **Para el desarrollo de la aplicaion obte por el patron de diseño `Orientado al Dominio` **
+* **Para el desarrollo de la aplicación obte por el patron de diseño `Orientado al Dominio` **
 
 ## endponts para consumo de servicios 
 * [Registrar]  (http://localhost:8001/nisum-app/api/v1/users/save)
